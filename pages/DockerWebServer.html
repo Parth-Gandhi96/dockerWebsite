@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+          integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
+            integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+            crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
+            integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+            crossorigin="anonymous"></script>
+
+    <link rel="icon" href="../images/icon.jpg">
+    <link rel="stylesheet" href="../css/myStyle.css">
+    <title>Docker local web server</title>
+
+</head>
+<body>
+<div class="wrapper">
+    <!-- Sidebar -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>Docker, Linux, and Containerization</h3>
+        </div>
+
+        <ul class="list-unstyled components">
+            <!--            <p>Dummy Heading</p>-->
+            <li>
+                <a href="../index.html">Home</a>
+            </li>
+            <li>
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Menu</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+
+                    <li>
+                        <a href="Virtualization.html">Virtualization</a>
+                    </li>
+                    <li>
+                        <a href="Containarization.html">Containerization</a>
+                    </li>
+                    <li>
+                        <a href="ContainerVsVistual.html">Containerization Vs Virtualization</a>
+                    </li>
+                    <li>
+                        <a href="DockerWebServer.html">Docker local web server</a>
+                    </li>
+                    <li>
+                        <a href="LinuxBasics.html">Linux Basic Commands</a>
+                    </li>
+                    <li>
+                        <a href="PyCharmDocker.html">PyCharm with Docker</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="../about.html">About</a>
+            </li>
+
+        </ul>
+    </nav>
+
+    <div id="content">
+        <nav class="navbar navbar-expand-lg navbar-light mb-4">
+            <div class="container-fluid">
+
+                <button type="button" id="sidebarCollapse" class="btn btn-info">
+                    <i class="fas fa-align-left"></i>
+                    <!--                    <span>Toggle Sidebar</span>-->
+                </button>
+
+            </div>
+        </nav>
+        <div class="container ml-3">
+            <div class="row">
+                <div class="col-10">
+                    <h1>Guide for Setting up Apache Web Server using DOCKER in your local computer - Windows</h1>
+                    <div class="mt-4"></div>
+                    <h5>Step-1:</h5>
+                    <p>
+                        Install Docker for your windows from: https://docs.docker.com/engine/install/</p>
+                    <p>
+                        After the installation, you can run "docker run hello-world” to test your installation. Below is
+                        a screenshots when run this command successfully on Windows.
+
+                    </p>
+                    <figure class="figure text-center container">
+                        <img style="width: 43rem;height: 25rem; " src="../images/hello_world.PNG"
+                             class="figure-img img-fluid rounded"
+                             alt="A generic square placeholder image with rounded corners in a figure.">
+                        <figcaption class="figure-caption"></figcaption>
+                    </figure>
+                    <p>
+                        After the installation, you can run "docker run hello-world” to test your installation. Below is
+                        a screenshots when run this command successfully on Windows.
+
+                    </p>
+
+                    <h5>Step-2:</h5>
+                    <p>
+                        Once the docker engine is installed correctly, please start the docker engine from the start
+                        menu (or Docker icon demo Desktop if it is there).
+                        [Note: for all the steps below make sure your Docker engine is running and you have Docker
+                        installed correctly]
+
+
+                    </p>
+                    <h5>Step-3:</h5>
+                    <p>Create one “Dockerfile” in the folder where you want to start your web server, with the following
+                        content in it:
+                    </p>
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th scope="col">
+
+                                <pre style="font-family:courier,arial,helvetica;">
+FROM ubuntu
+RUN apt-get update
+
+RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install tzdata
+
+RUN apt-get install apache2 -y tzdata
+RUN apt-get install apache2-utils -y tzdata
+RUN apt-get clean
+
+ADD htmlPage/welcome.html /
+
+#ENTRYPOINT ["/usr/sbin/apache2", "-k", "start"]
+
+
+#ENV APACHE_RUN_USER www-data
+
+#ENV APACHE_RUN_GROUP www-data
+#ENV APACHE_LOG_DIR /var/log/apache2
+
+
+EXPOSE 80
+
+CMD ["apachectl", "-D", "FOREGROUND"]
+                        </pre>
+                            </th>
+                        </tr>
+                        </thead>
+                    </table>
+
+                    <p>Explanation for every line:</p>
+                    <ul>
+                        <li>FROM ubuntu : Fetches the ubuntu Operating System from the available resources on Docker
+                            Hub, as to set it as OS for our container
+                        </li>
+                        <li>RUN [cmd]: running particular command on CLI of ubuntu OS of container</li>
+                        <li>DEBIAN_FRONTEND="noninteractive" : sets the command running on CLI to be non-interactive,
+                            which means while building the image from this Dockerfile it wont ask for any questions to
+                            user (like “y/n” etc.)
+                        </li>
+                        <li>apt-get -y install tzdata : installing timezone data from ubuntu packages</li>
+                        <li>apt-get install apache2 -y tzdata : installing apache2 from ubuntu available resource
+                            packages, “-y” is for selecting yes to first interactive question asked to user while
+                            building the image from file, ‘tzdata’ is to use the information installed from another
+                            package with same name is subsequent interactive question while building (same applies to
+                            following command : apt-get install apache2-utils -y tzdata)
+                        </li>
+                        <li>ENTRYPOINT : It sets the entry point for Docker image after building , for execution when
+                            hit the RUN command.
+                        </li>
+                        <li>ENV : sets the environment variables for OS in the image (inorder to set the apache2 server
+                            to be run using CLI)
+                        </li>
+                        <li>EXPOSE : setting up the Docker server at port number 80</li>
+                        <li>CMD : running the command on CLI of Ubuntu OS in Docker image</li>
+                    </ul>
+
+
+                    <h5>Step-4:</h5>
+                    <p>Do in the folder where you have kept your Dockerfile, run the following command:</p>
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th scope="col">
+                                <p style="font-family:courier,arial,helvetica;">
+                                    $ docker build –t image_tag_name .
+                                </p>
+                            </th>
+                        </tr>
+                        </thead>
+                    </table>
+                    <p>The command will build the image from files in your directory, with installed dependencies as
+                        mentioned in Dockerfile. You will find the image available in Docker Desktop application, inside
+                        the images. Or you can also find using the command “docker images”.
+                    </p>
+
+                    <h5>Step-5:</h5>
+                    <p>Now in order to RUN the Docker image that is created with particular Tag-name, write the
+                        following command and run it:</p>
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th scope="col">
+                                <p style="font-family:courier,arial,helvetica;">
+                                    $
+
+                                    docker run –d –p 80:80 image-tag-name .
+
+
+                                </p>
+                            </th>
+                        </tr>
+                        </thead>
+                    </table>
+                    <p>The port number exposed by the container is 80. Hence with the –p command, we are mapping the
+                        same port number to the 80 port number on our localhost.
+                    </p>
+                    <p>
+                        The –d option is used to run the container in detached mode. This is so that the container can run in the background.
+
+                    </p>
+
+
+                    <h5>Step-6:</h5>
+<p>Now check to make sure that your server is up, and it is running:
+You can check it via Docker Desktop application:
+</p>
+                    <figure class="figure text-center container">
+                        <img  src="../images/started_container.PNG"
+                             class="figure-img img-fluid rounded"
+                             alt="A generic square placeholder image with rounded corners in a figure.">
+                        <figcaption class="figure-caption"></figcaption>
+                    </figure>
+
+                    <p>As you can see the container named - “happy_euler” with tag-name “apachewebserver” is shown with green icon (reflects that is running without any error).
+If you will click on the container name it will open it’s detail in same window (as shown in below image):
+</p><figure class="figure text-center container">
+                        <img  src="../images/server_port_url_browser.PNG"
+                             class="figure-img img-fluid rounded"
+                             alt="A generic square placeholder image with rounded corners in a figure.">
+                        <figcaption class="figure-caption"></figcaption>
+                    </figure>
+                    <p>As it says, our serve is ON at “localhost:80”, So if you hit that url on windows it will open default index page for apache server (as shown in below image):
+</p>
+                    <figure class="figure text-center container">
+                        <img  src="../images/in_the_browser.PNG"
+                             class="figure-img img-fluid rounded"
+                             alt="A generic square placeholder image with rounded corners in a figure.">
+                        <figcaption class="figure-caption"></figcaption>
+                    </figure>
+                    <p>But if you want to change the HTML page, and want to put your own files in serve and open it on browser, follow the following steps:
+</p>
+                    <ul>
+                        <li>Click on the icon shown in red square:</li>
+                        <figure class="figure text-center container">
+                        <img" src="../images/can_open_termial_inside_the_server.PNG"
+                             class="figure-img img-fluid rounded"
+                             alt="A generic square placeholder image with rounded corners in a figure.">
+                        <figcaption class="figure-caption"></figcaption>
+                    </figure>
+                        <li>It will open CLI inside the server, so you can put your HTML file (which we have put as named - “welcome.html”) in the var/www/html directory. (If you notice index.html file will already be there, you can change that as well in order to make your page as default opening page for server URL):
+</li>
+                        <figure class="figure text-center container">
+                        <img  src="../images/put_html_page_invar_www_html_directory.PNG"
+                             class="figure-img img-fluid rounded"
+                             alt="A generic square placeholder image with rounded corners in a figure.">
+                        <figcaption class="figure-caption"></figcaption>
+                    </figure>
+                        <li>Now if you hit the same sever URL with welcome.html at the appended, it will open your html page in browser:
+</li>
+                        <figure class="figure text-center container">
+                        <img src="../images/browser_shows_html_page_moved_inside_server.PNG"
+                             class="figure-img img-fluid rounded"
+                             alt="A generic square placeholder image with rounded corners in a figure.">
+                        <figcaption class="figure-caption"></figcaption>
+                    </figure>
+                    </ul>
+
+                    <p>So, this way you can create your own local server using Docker and execute your code with dependency installed in the container. Once the setup (Dockerfile configuration) is done correctly for each required dependency there is no hurdle in execution of the container code in the local server.
+</p>
+                </div>
+            </div>
+        </div>
+
+        <footer class="bg-light text-center text-lg-start mt-lg-5">
+
+            <div class="text-center bg-light p-3">
+                For More information about How Internet Works :
+                <a class="text-dark" href="https://www.youtube.com/playlist?list=PLzdnOPI1iJNfMRZm5DDxco3UdsFegvuB7">Click
+                    Here</a>
+            </div>
+            <!-- Copyright -->
+        </footer>
+    </div>
+</div>
+
+
+<!-- jQuery CDN - Slim version (=without AJAX) -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<!-- Popper.JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+        integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
+<!-- Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+        integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function () {
+
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').toggleClass('active');
+        });
+
+    });
+</script>
+</body>
+</html>

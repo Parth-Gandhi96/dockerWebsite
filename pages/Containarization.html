@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+          integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
+            integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+            crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
+            integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+            crossorigin="anonymous"></script>
+
+    <link rel="icon" href="../images/icon.jpg">
+    <link rel="stylesheet" href="../css/myStyle.css">
+    <title>Containerization</title>
+
+</head>
+<body>
+<div class="wrapper">
+    <!-- Sidebar -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>Docker, Linux, and Containerization</h3>
+        </div>
+
+        <ul class="list-unstyled components">
+            <!--            <p>Dummy Heading</p>-->
+            <li>
+                <a href="../index.html">Home</a>
+            </li>
+            <li>
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Menu</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+
+                    <li>
+                        <a href="Virtualization.html">Virtualization</a>
+                    </li>
+                    <li>
+                        <a href="Containarization.html">Containerization</a>
+                    </li>
+                    <li>
+                        <a href="ContainerVsVistual.html">Containerization Vs Virtualization</a>
+                    </li>
+                    <li>
+                        <a href="DockerWebServer.html">Docker local web server</a>
+                    </li>
+                    <li>
+                        <a href="LinuxBasics.html">Linux Basic Commands</a>
+                    </li>
+                    <li>
+                        <a href="PyCharmDocker.html">PyCharm with Docker</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="../about.html">About</a>
+            </li>
+
+        </ul>
+    </nav>
+
+    <div id="content">
+        <nav class="navbar navbar-expand-lg navbar-light mb-4">
+            <div class="container-fluid">
+
+                <button type="button" id="sidebarCollapse" class="btn btn-info">
+                    <i class="fas fa-align-left"></i>
+                    <!--                    <span>Toggle Sidebar</span>-->
+                </button>
+
+            </div>
+        </nav>
+        <div class="container ml-3">
+            <div class="row">
+                <div class="col-10">
+                    <h1>Containerization</h1>
+                    <div class="mt-4"></div>
+                    <p>Containerization is a form of operating system virtualization, through which applications
+                        are run in isolated user spaces called containers, all using the same shared operating system
+                        (OS). A container is a standard unit of software that packages up code and all its dependencies,
+                        so the application runs quickly and reliably from one computing environment to another. A
+                        container is essentially a fully packaged portable computing environment:</p>
+                    <div class="text-center">
+                        <img class="rounded mt-3 mb-5" style="width: 35rem;height: 25rem; "
+                             src="../images/containerization.png">
+                    </div>
+                    <ul>
+                        <li>It contains everything an application needs to run- its bianries, libraries, configuration
+                            files, dependencies.
+                        </li>
+                        <li>
+                            The container itself is abstracted away from the host OS, with limited access to
+                            underlying resources making it lightweight.
+                        </li>
+                        <li>
+                            As a result, the containerized application can be run on various types of infrastructure-
+                            on bare metal, within VMs, and in the cloud, without needing to refactor it for each
+                            environment.
+                        </li>
+                    </ul>
+                    <h4>Types of Container Software</h4>
+
+                    <p>
+                        The 10 best container software in 2021 include:
+                    </p>
+
+                    <ul>
+                        <li>Docker</li>
+                        <li>AWS Fargate</li>
+                        <li>Google Kubernetes Engine</li>
+                        <li>Amazon ECS</li>
+                        <li>LXS</li>
+                        <li>Container Linux by CoreOS</li>
+                        <li>Microsoft Azure</li>
+                        <li>Google Clout Platform m</li>
+                        <li>Portainer</li>
+                        <li>Apache Mesos</li>
+                    </ul>
+                    <div class="text-center">
+                        <img class="rounded mt-3 mb-5" style="width: 40rem;height: 25rem; " src="../images/contian.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="bg-light text-center text-lg-start mt-lg-5">
+
+            <div class="text-center bg-light p-3">
+                For More information about How Internet Works :
+                <a class="text-dark" href="https://www.youtube.com/playlist?list=PLzdnOPI1iJNfMRZm5DDxco3UdsFegvuB7">Click
+                    Here</a>
+            </div>
+            <!-- Copyright -->
+        </footer>
+    </div>
+</div>
+
+
+<!-- jQuery CDN - Slim version (=without AJAX) -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<!-- Popper.JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+        integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
+<!-- Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+        integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function () {
+
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').toggleClass('active');
+        });
+
+    });
+</script>
+</body>
+</html>

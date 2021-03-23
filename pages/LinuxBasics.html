@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+          integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
+            integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+            crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
+            integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+            crossorigin="anonymous"></script>
+
+    <link rel="icon" href="../images/icon.jpg">
+    <link rel="stylesheet" href="../css/myStyle.css">
+    <title>Linux Basic Commands</title>
+
+</head>
+<body>
+<div class="wrapper">
+    <!-- Sidebar -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>Docker, Linux, and Containerization</h3>
+        </div>
+
+        <ul class="list-unstyled components">
+            <!--            <p>Dummy Heading</p>-->
+            <li>
+                <a href="../index.html">Home</a>
+            </li>
+            <li>
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Menu</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+
+                    <li>
+                        <a href="Virtualization.html">Virtualization</a>
+                    </li>
+                    <li>
+                        <a href="Containarization.html">Containerization</a>
+                    </li>
+                    <li>
+                        <a href="ContainerVsVistual.html">Containerization Vs Virtualization</a>
+                    </li>
+                    <li>
+                        <a href="DockerWebServer.html">Docker local web server</a>
+                    </li>
+                    <li>
+                        <a href="LinuxBasics.html">Linux Basic Commands</a>
+                    </li>
+                    <li>
+                        <a href="PyCharmDocker.html">PyCharm with Docker</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="../about.html">About</a>
+            </li>
+
+        </ul>
+    </nav>
+
+    <div id="content">
+        <nav class="navbar navbar-expand-lg navbar-light mb-4">
+            <div class="container-fluid">
+
+                <button type="button" id="sidebarCollapse" class="btn btn-info">
+                    <i class="fas fa-align-left"></i>
+                    <!--                    <span>Toggle Sidebar</span>-->
+                </button>
+
+            </div>
+        </nav>
+        <div class="container ml-3">
+            <div class="row">
+                <div class="col-10">
+                    <h1>Linux Basic Commands</h1>
+                    <div class="mt-4"></div>
+
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th scope="col">Command</th>
+                            <th scope="col">Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">pwd</th>
+                            <td><p>To find out the path of the current working directory</p></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">cd</th>
+                            <td>
+                                <p>
+                                    To navigate through the Linux files and directories
+                                </p>
+                                <p>
+                                    cd .. (with two dots) to move one directory up
+                                    cd to go straight to the home folder
+                                    cd- (with a hyphen) to move to your previous directory
+
+                                </p>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ls</th>
+                            <td><p>
+                                To view the contents of a directory
+                            </p>
+                                <p>
+                                    ls -R will list all the files in the sub-directories as well</p>
+                                <p>ls -a will show the hidden files</p>
+                                <p>ls -al will list the files and directories with detailed information like the
+                                    permissions, size, owner, etc.
+                                </p>
+                                </p></td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">cat</th>
+                            <td><p>To list the contents of a file on the standard output</p>
+                                <p>cat > filename creates a new file</p>
+                                <p>cat filename1 filename2>filename3 joins two files (1 and 2) and stores the output of
+                                    them in a new file (3)
+                                    to convert a file to upper or lower case use, cat filename | tr a-z A-Z >output.txt
+                                </p></td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">cp</th>
+
+                            <td><p>
+                                To copy files from the current directory to a different directory.
+                            </p>
+                                <p>cp scenery.jpg /home/username/Pictures
+                                </p>
+                                </p></td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">mv</th>
+                            <td><p>
+                                To move files, although it can also be used to rename files.
+                            </p>
+                                <p>mv file.txt /home/username/Documents
+
+                                </p></td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">mkdir</th>
+                            <td><p>
+                                To make a new directory
+
+                            </p></td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">rm</th>
+                            <td><p>
+                                To delete directories and the contents within them (rm -r → for recursive delete in
+                                directory)
+
+                            </p></td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">touch</th>
+                            <td><p>
+                                To create a blank new file
+
+                            </p></td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">locate</th>
+                            <td><p>
+                                To locate a file, just like the search command in Windows
+                                [Similar cmd: find]
+
+                            </p></td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">grep</th>
+                            <td><p>
+                                Lets you search through all the text in a given file
+
+                            </p></td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">sudo</th>
+                            <td><p>
+                                Short for “SuperUser Do”, this command enables you to perform tasks that require
+                                administrative or root permissions.
+
+                            </p></td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">df</th>
+                            <td><p>
+                                To get a report on the system’s disk space usage, shown in percentage and KBs
+
+                            </p></td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">du</th>
+                            <td><p>
+                                To check how much space a file or a directory takes
+
+                            </p></td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">head</th>
+                            <td><p>
+                                To view the first lines of any text file
+
+                            </p></td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">tail</th>
+                            <td><p>Similar function to the head command, but instead of showing the first lines, the
+                                tail command will display the last ten lines of a text file.</p></td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">diff</th>
+                            <td><p>Compares the contents of two files line by line</p></td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">tar</th>
+                            <td><p>
+                                Most used command to archive multiple files
+
+                            </p></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">chmod</th>
+                            <td><p>
+
+                                Used to change the read, write, and execute permissions of files and directories
+
+
+                            </p></td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="mt-5">
+                        <h2>How to log into your docker container</h2>
+                        <h4>Login to a self-hosted registry</h4>
+                        <p>If you want to login to a self-hosted registry you can specify this by adding the server
+                            name.</p>
+                        <p style="font-family:courier,arial,helvetica;">
+                            $ docker login localhost:8080
+                        </p>
+                        <h4>Provide a password using STDIN</h4>
+                        <p>To run the docker login command non-interactively, you can set the --password-stdin flag to
+                            provide a password through STDIN. Using STDIN prevents the password from ending up in the
+                            shell’s history, or log-files.
+                        </p>
+                        <p>The following example reads a password from a file, and passes it to the docker login command
+                            using STDIN:
+                        </p>
+                        <p style="font-family:courier,arial,helvetica;">
+                            $ cat ~/my_password.txt | docker login --username foo --password-stdin
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="bg-light text-center text-lg-start mt-lg-5">
+
+            <div class="text-center bg-light p-3">
+                For More information about How Internet Works :
+                <a class="text-dark" href="https://www.youtube.com/playlist?list=PLzdnOPI1iJNfMRZm5DDxco3UdsFegvuB7">Click
+                    Here</a>
+            </div>
+            <!-- Copyright -->
+        </footer>
+    </div>
+</div>
+
+
+<!-- jQuery CDN - Slim version (=without AJAX) -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<!-- Popper.JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+        integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
+<!-- Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+        integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function () {
+
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').toggleClass('active');
+        });
+
+    });
+</script>
+</body>
+</html>
